@@ -16,25 +16,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
-                                <rect key="frame" x="192" y="483" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6b-rI-Ml3">
+                                <rect key="frame" x="16" y="351" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XD4-sb-XPE"/>
+                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Mb8-Qj-Ozr"/>
                                 </connections>
-                            </button>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="g2d-9p-SLb">
+                                <rect key="frame" x="16" y="411" width="382" height="96.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtW-pa-TXL">
+                                        <rect key="frame" x="170.5" y="0.0" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="111" translatesAutoresizingMaskIntoConstraints="NO" id="N4V-Ag-KiO">
+                                        <rect key="frame" x="102" y="60.5" width="178" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3g4-cd-RKK">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="ON"/>
+                                                <connections>
+                                                    <action selector="onBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XD4-sb-XPE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0r-nJ-NOD">
+                                                <rect key="frame" x="141" y="0.0" width="37" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="OFF"/>
+                                                <connections>
+                                                    <action selector="offBut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kj2-QY-HJA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="D0r-nJ-NOD" firstAttribute="leading" secondItem="3g4-cd-RKK" secondAttribute="trailing" constant="111" id="gFK-kv-tEd"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p6b-rI-Ml3" secondAttribute="trailing" constant="16" id="AUs-p6-bWh"/>
+                            <constraint firstItem="p6b-rI-Ml3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="307" id="C1O-WQ-TRF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g2d-9p-SLb" secondAttribute="trailing" constant="16" id="NuD-1T-YPL"/>
+                            <constraint firstItem="g2d-9p-SLb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QZM-ol-oZT"/>
+                            <constraint firstItem="p6b-rI-Ml3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ROS-zH-JAR"/>
+                            <constraint firstItem="g2d-9p-SLb" firstAttribute="top" secondItem="p6b-rI-Ml3" secondAttribute="bottom" constant="26" id="kmd-DX-5MK"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="3g4-cd-RKK" id="yGm-KB-boF"/>
+                        <outlet property="buttonTwo" destination="D0r-nJ-NOD" id="Elt-mU-q14"/>
+                        <outlet property="label" destination="EtW-pa-TXL" id="Fxf-eY-Zg9"/>
+                        <outlet property="textField" destination="p6b-rI-Ml3" id="EIq-za-tV8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="97"/>
+            <point key="canvasLocation" x="137.68115942028987" y="96.428571428571431"/>
         </scene>
     </scenes>
     <resources>

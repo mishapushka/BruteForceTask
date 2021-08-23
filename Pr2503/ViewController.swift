@@ -1,8 +1,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var onButton: UIButton!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var offButton: UIButton!
+
     var isBlack: Bool = false {
         didSet {
             if isBlack {
@@ -17,10 +20,15 @@ class ViewController: UIViewController {
         isBlack.toggle()
     }
     
+    @IBAction func textFieldAction(_ sender: Any) {
+    }
+
+    @IBAction func offBut(_ sender: Any) {
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         self.bruteForce(passwordToUnlock: "1!gr")
         
         // Do any additional setup after loading the view.
@@ -43,8 +51,6 @@ class ViewController: UIViewController {
     }
 }
 
-
-
 extension String {
     var digits:      String { return "0123456789" }
     var lowercase:   String { return "abcdefghijklmnopqrstuvwxyz" }
@@ -52,8 +58,6 @@ extension String {
     var punctuation: String { return "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" }
     var letters:     String { return lowercase + uppercase }
     var printable:   String { return digits + letters + punctuation }
-
-
 
     mutating func replace(at index: Int, with character: Character) {
         var stringArray = Array(self)
@@ -85,7 +89,5 @@ func generateBruteForce(_ string: String, fromArray array: [String]) -> String {
             str = String(generateBruteForce(String(str.dropLast()), fromArray: array)) + String(str.last!)
         }
     }
-
     return str
 }
-
